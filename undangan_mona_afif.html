@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Mona & Afif</title>
+    <style>
+        /* CSS Reset & Variable */
+        :root {
+            --primary-white: #ffffff;
+            --bg-light: #f7f9fc;
+            --elegant-blue: #1a365d;
+            --accent-blue: #2b6cb0;
+            --soft-blue: #ebf8ff;
+            --text-dark: #2d3748;
+            --text-muted: #718096;
+            --gold: #b7791f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-white) 70%, var(--soft-blue) 100%);
+            padding: 80px 20px;
+            border-bottom: 3px solid var(--soft-blue);
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--elegant-blue);
+        }
+
+        .wedding-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .couple-name {
+            font-size: 42px;
+            font-family: 'Georgia', serif;
+            color: var(--elegant-blue);
+            margin: 15px 0;
+            font-weight: 700;
+        }
+
+        .date-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: var(--soft-blue);
+            color: var(--elegant-blue);
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quran-verse {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 14px;
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-blue);
+            margin: 20px auto;
+            max-width: 650px;
+        }
+
+        /* Profile Section */
+        .mempelai-container {
+            display: block;
+            margin-top: 40px;
+        }
+
+        .mempelai-box {
+            padding: 25px;
+            background: var(--bg-light);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .mempelai-box:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .nama-lengkap {
+            font-size: 24px;
+            font-family: 'Georgia', serif;
+            color: var(--elegant-blue);
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .orang-tua {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .ampersand {
+            font-size: 28px;
+            font-family: 'Georgia', serif;
+            color: var(--accent-blue);
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        /* Event Section */
+        .event-section {
+            background-color: var(--bg-light);
+            border-radius: 16px;
+            padding: 50px 20px;
+            margin-top: 40px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .section-title {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            color: var(--elegant-blue);
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .detail-item strong {
+            color: var(--elegant-blue);
+            display: block;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--elegant-blue);
+            color: var(--primary-white);
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 20px;
+            font-size: 15px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-blue);
+        }
+
+        /* Form RSVP */
+        .rsvp-form {
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--primary-white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--elegant-blue);
+            font-size: 14px;
+        }
+
+        .form-group input[type="text"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 15px;
+            color: var(--text-dark);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+        }
+
+        /* Wishes / Comments Section */
+        .wishes-display {
+            margin-top: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .wish-card {
+            background: var(--bg-light);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .wish-name {
+            font-weight: bold;
+            color: var(--elegant-blue);
+            font-size: 14px;
+        }
+
+        .wish-text {
+            font-size: 14px;
+            color: var(--text-dark);
+            margin-top: 4px;
+        }
+
+        /* Gift Section */
+        .gift-container {
+            background-color: var(--soft-blue);
+            padding: 40px 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .gift-card {
+            background: var(--primary-white);
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 10px;
+            min-width: 240px;
+            border: 1px solid #bee3f8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--elegant-blue);
+            color: var(--primary-white);
+            padding: 40px 20px;
+            margin-top: 80px;
+            font-size: 14px;
+        }
+
+        footer p {
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+            opacity: 0.9;
+        }
+
+        .footer-couple {
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Mobile Layout optimization */
+        @media (min-width: 600px) {
+            .mempelai-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .mempelai-box {
+                width: 45%;
+                margin-bottom: 0;
+            }
+            .ampersand {
+                width: 10%;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Hero Section -->
+    <header class="hero">
+        <p class="wedding-title">Walimah Pernikahan</p>
+        <h1 class="couple-name">Mona & Afif</h1>
+        <p style="color: var(--text-muted); font-size: 15px; letter-spacing: 2px;">MINGGU, 06 JULI 2026</p>
+    </header>
+
+    <!-- Ayat Suci -->
+    <section>
+        <div class="quran-verse">
+            "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."
+            <div style="margin-top: 10px; font-weight: 600; color: var(--elegant-blue); font-size: 12px;">(QS. Ar-Rum: 21)</div>
+        </div>
+    </section>
+
+    <!-- Mempelai Section -->
+    <section id="mempelai">
+        <p class="wedding-title" style="margin-bottom: 10px;">Mempelai</p>
+        <p style="color: var(--text-muted); margin-bottom: 30px;">Assalamu'alaikum Wr. Wb. Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i ke acara pernikahan kami:</p>
+        
+        <div class="mempelai-container">
+            <!-- Wanita -->
+            <div class="mempelai-box">
+                <h2 class="nama-lengkap">Mona Lisnawati</h2>
+                <p class="orang-tua">Putri dari<br><b>Ibu Siti Rahma & Bapak Gajali Rahman</b></p>
+            </div>
+
+            <div class="ampersand">&</div>
+
+            <!-- Pria -->
+            <div class="mempelai-box">
+                <h2 class="nama-lengkap">Muchamad Afif</h2>
+                <p class="orang-tua">Putra dari<br><b>Ibu Normadiah & Bapak Wahyu (Alm)</b></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acara Section -->
+    <section id="acara">
+        <div class="event-section">
+            <h2 class="section-title">Waktu & Tempat Acara</h2>
+            
+            <div class="detail-item">
+                <strong>Hari & Tanggal</strong>
+                Minggu, 6 Juli 2026
+            </div>
+
+            <div class="detail-item">
+                <strong>Alamat Lokasi</strong>
+                Jl. Batuah, Desa Buluan, RT 001 RW 001,<br>Kec. Pandawan, Kabupaten Hulu Sungai Tengah
+            </div>
+
+            <!-- Menggunakan link pencarian Google Maps statis berdasarkan teks alamat -->
+            <a href="https://maps.google.com/?q=Jl.+Batuah+Desa+Buluan+RT+001+RW+001+Kec.+Pandawan" target="_blank" class="btn">
+                📍 Buka Google Maps
+            </a>
+        </div>
+    </section>
+
+    <!-- RSVP & Ucapan -->
+    <section id="rsvp">
+        <h2 class="section-title" style="margin-bottom: 10px;">Konfirmasi Kehadiran</h2>
+        <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 15px;">Bantu kami mempersiapkan jamuan terbaik dengan mengonfirmasi kehadiran Anda.</p>
+        
+        <div class="rsvp-form">
+            <form id="weddingRsvpForm" onsubmit="submitRsvp(event)">
+                <div class="form-group">
+                    <label for="namaTamu">Nama Anda</label>
+                    <input type="text" id="namaTamu" placeholder="Masukkan nama lengkap" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="statusHadir">Konfirmasi Kehadiran</label>
+                    <select id="statusHadir" required onchange="toggleJumlahHadir()">
+                        <option value="Hadir">SAYA AKAN HADIR</option>
+                        <option value="Tidak Hadir">MOHON MAAF, BERHALANGAN</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="jumlahHadirContainer">
+                    <label for="jumlahHadir">Jumlah Tamu yang Hadir</label>
+                    <select id="jumlahHadir">
+                        <option value="1">1 Orang</option>
+                        <option value="2">2 Orang</option>
+                        <option value="3">3 Orang</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ucapanDoa">Ucapan & Doa Restu</label>
+                    <textarea id="ucapanDoa" rows="4" placeholder="Tulis doa restu Anda di sini..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Kirim Konfirmasi</button>
+            </form>
+        </div>
+
+        <!-- Wadah Menampilkan Ucapan Dinamis Sementara -->
+        <div class="wishes-display" id="wishesDisplay">
+            <!-- Ucapan default bawaan -->
+            <div class="wish-card">
+                <div class="wish-name">Keluarga Besar</div>
+                <div class="wish-text">Selamat menempuh hidup baru Mona & Afif! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Aamiin.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kado Digital (Opsional) -->
+    <section id="kado">
+        <h2 class="section-title" style="margin-bottom: 10px;">Digital Gift</h2>
+        <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 15px;">Tanpa mengurangi rasa hormat, bagi Anda yang ingin memberikan tanda kasih secara cashless dapat melalui rekening berikut:</p>
+        
+        <div class="gift-container">
+            <div class="gift-card">
+                <div style="font-weight: bold; color: var(--elegant-blue);">BANK MANDIRI / BCA / BRI</div>
+                <div style="font-size: 18px; font-weight: bold; margin: 8px 0; color: var(--accent-blue);">1234-5678-90</div>
+                <div style="font-size: 13px; color: var(--text-muted);">a.n. Mona Lisnawati</div>
+            </div>
+            
+            <div class="gift-card">
+                <div style="font-weight: bold; color: var(--elegant-blue);">BANK MANDIRI / BCA / BRI</div>
+                <div style="font-size: 18px; font-weight: bold; margin: 8px 0; color: var(--accent-blue);">0987-6543-21</div>
+                <div style="font-size: 13px; color: var(--text-muted);">a.n. Muchamad Afif</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.</p>
+        <p>Wassalamu'alaikum Wr. Wb.</p>
+        <div style="margin-top: 30px;" class="footer-couple">Mona & Afif</div>
+        <p style="font-size: 11px; margin-top: 15px; opacity: 0.6;">&copy; 2026 Undangan Pernikahan Digital.</p>
+    </footer>
+
+    <!-- Interaktivitas Sederhana -->
+    <script>
+        function toggleJumlahHadir() {
+            const status = document.getElementById('statusHadir').value;
+            const container = document.getElementById('jumlahHadirContainer');
+            if (status === 'Tidak Hadir') {
+                container.style.display = 'none';
+            } else {
+                container.style.display = 'block';
+            }
+        }
+
+        function submitRsvp(event) {
+            event.preventDefault();
+            
+            const nama = document.getElementById('namaTamu').value;
+            const status = document.getElementById('statusHadir').value;
+            const ucapan = document.getElementById('ucapanDoa').value;
+            
+            if(!nama || !ucapan) return;
+
+            // Buat card ucapan baru secara dinamis
+            const displayContainer = document.getElementById('wishesDisplay');
+            const card = document.createElement('div');
+            card.className = 'wish-card';
+            
+            const badgeStatus = status === 'Hadir' ? ' (Akan Hadir)' : ' (Berhalangan)';
+            
+            card.innerHTML = `
+                <div class="wish-name">${nama}<span style="font-weight: normal; font-size: 12px; color: var(--accent-blue);">${badgeStatus}</span></div>
+                <div class="wish-text">${ucapan}</div>
+            `;
+            
+            // Masukkan di paling atas list ucapan
+            displayContainer.insertBefore(card, displayContainer.firstChild);
+            
+            // Reset form
+            document.getElementById('weddingRsvpForm').reset();
+            toggleJumlahHadir();
+            
+            alert('Terima kasih! Konfirmasi dan doa restu Anda telah tersimpan.');
+        }
+    </script>
+</body>
+</html>
